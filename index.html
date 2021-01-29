@@ -45,7 +45,7 @@
                 </div>
                 <div class="input-group">
                     <label" for="">From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Chittagone">
+                    <input class="inp-style" type="text" name="" placeholder="Chittagong">
                 </div>
             </div>
 
@@ -59,25 +59,34 @@
                     <input class="inp-style" type="date" name="">
                 </div>
             </div>
+
+            <!-- star from -->
+
+
+
             <div class="inputs">
                 <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="count-number" class="inp-style inp-width" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <p> <span id="increase-number">+</span> <span id="decrease-number"> -</span> </p>
                 </div>
             </div>
+
+
+         
+            <!-- star from -->
                 <div class="input-group f-class">
                     <div>
                         <label for="">Economy ($100)</label>
-                        <input class="inp-style inp-width" type="number" name="">
+                        <!-- <input  id="count-number" class="inp-style inp-width" type="number" name=""> -->
                     </div>
                     <div class="plus-minus-btn">
-                        <p> <span>+</span> <span>-</span> </p>
+                        <!-- <p> <span id="increase-number">+</span> <span id="decrease-number">-</span> </p> -->
                     </div>
-                </div>
+                </div> --> -->
 
             </div>
             <div class="calculations">
@@ -86,7 +95,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="total-cost">$500</p>
                     </div>
                 </div>
 
@@ -95,7 +104,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="tax">$50</p>
                     </div>
                 </div>
                 <hr>
@@ -104,7 +113,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="total">$550</p>
                     </div>
                 </div>
             </div>
@@ -113,6 +122,55 @@
     </main>
 
     <!--Thank You-->
+
+<script>
+
+
+
+
+
+// increase
+
+    document.getElementById('increase-number').addEventListener('click',function(){
+     const numberInput= document.getElementById('count-number');
+     const numberCount=parseInt(numberInput.value);
+     const newNumberCount=numberCount+1;
+     numberInput.value=newNumberCount;
+     const totalCostWithoutVat=newNumberCount*150;
+     document.getElementById("total-cost").innerText= "$"+totalCostWithoutVat;
+     const taxCost=totalCostWithoutVat*.1;
+     document.getElementById("tax").innerText= "$"+taxCost;
+     const totalCost= totalCostWithoutVat+taxCost;
+     document.getElementById("total").innerText= "$"+totalCost;
+
+
+  
+     
+
+    })
+
+    // decrease
+    
+    document.getElementById('decrease-number').addEventListener('click',function(){
+     const numberInput= document.getElementById('count-number');
+     const numberCount=parseInt(numberInput.value);
+     const newNumberCount=numberCount-1;
+     numberInput.value=newNumberCount;
+     const totalCostWithoutVat=newNumberCount*150;
+     document.getElementById("total-cost").innerText= "$"+totalCostWithoutVat;
+     const taxCost=totalCostWithoutVat*.1;
+     document.getElementById("tax").innerText= "$"+taxCost;
+     const totalCost= totalCostWithoutVat+taxCost;
+     document.getElementById("total").innerText= "$"+totalCost;
+
+
+  
+  
+     
+    })
+
+</script>
+
 </body>
 
 </html>
