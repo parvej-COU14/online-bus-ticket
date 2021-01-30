@@ -27,7 +27,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main   class="main-content container">
 
         <div class="booking-content">
             <h1>Mega City Bus</h1>
@@ -35,7 +35,7 @@
         </div>
 
 
-        <div class="booking-form">
+        <div  class="booking-form">
             <h3>Explore By Bus</h3>
 
             <div class="inputs">
@@ -68,10 +68,10 @@
                 <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="count-number" class="inp-style inp-width" type="number" name="">
+                    <input id="firstClass-count-number" class="inp-style inp-width" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span id="increase-number">+</span> <span id="decrease-number"> -</span> </p>
+                    <p> <span id="firstClass-increase-number">+</span> <span id="firstClass-decrease-number"> -</span> </p>
                 </div>
             </div>
 
@@ -81,10 +81,10 @@
                 <div class="input-group f-class">
                     <div>
                         <label for="">Economy ($100)</label>
-                        <!-- <input  id="count-number" class="inp-style inp-width" type="number" name=""> -->
+                        <input  id="economyClass-count-number" class="inp-style inp-width" type="number" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <!-- <p> <span id="increase-number">+</span> <span id="decrease-number">-</span> </p> -->
+                        <p> <span id="economyClass-increase-number">+</span> <span id="economyClass-decrease-number">-</span> </p>
                     </div>
                 </div> --> -->
 
@@ -117,11 +117,14 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button  id ="submit"class="btn-style">Book Now</button>
+         
         </div>
+      
     </main>
-
+  
     <!--Thank You-->
+    
 
 <script>
 
@@ -129,10 +132,36 @@
 
 
 
-// increase
 
-    document.getElementById('increase-number').addEventListener('click',function(){
-     const numberInput= document.getElementById('count-number');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// increase-01
+
+    document.getElementById('firstClass-increase-number').addEventListener('click',function(){
+     const numberInput= document.getElementById('firstClass-count-number');
      const numberCount=parseInt(numberInput.value);
      const newNumberCount=numberCount+1;
      numberInput.value=newNumberCount;
@@ -148,11 +177,34 @@
      
 
     })
-
-    // decrease
     
-    document.getElementById('decrease-number').addEventListener('click',function(){
-     const numberInput= document.getElementById('count-number');
+// increase-02
+
+document.getElementById('economyClass-increase-number').addEventListener('click',function(){
+     const numberInput= document.getElementById('economyClass-count-number');
+     const numberCount=parseInt(numberInput.value);
+     const newNumberCount=numberCount+1;
+     numberInput.value=newNumberCount;
+     const totalCostWithoutVat=newNumberCount*100;
+     document.getElementById("total-cost").innerText= "$"+totalCostWithoutVat;
+     const taxCost=totalCostWithoutVat*.1;
+     document.getElementById("tax").innerText= "$"+taxCost;
+     const totalCost= totalCostWithoutVat+taxCost;
+     document.getElementById("total").innerText= "$"+totalCost;
+
+
+  
+     
+
+    })
+
+
+  
+
+    // decrease-01
+    
+    document.getElementById('firstClass-decrease-number').addEventListener('click',function(){
+        const numberInput= document.getElementById('firstClass-count-number');
      const numberCount=parseInt(numberInput.value);
      const newNumberCount=numberCount-1;
      numberInput.value=newNumberCount;
@@ -168,8 +220,34 @@
   
      
     })
+    // decrease-02
+    
+    document.getElementById('economyClass-decrease-number').addEventListener('click',function(){
+        const numberInput= document.getElementById('economyClass-count-number');
+     const numberCount=parseInt(numberInput.value);
+     const newNumberCount=numberCount-1;
+     numberInput.value=newNumberCount;
+     const totalCostWithoutVat=newNumberCount*100;
+     document.getElementById("total-cost").innerText= "$"+totalCostWithoutVat;
+     const taxCost=totalCostWithoutVat*.1;
+     document.getElementById("tax").innerText= "$"+taxCost;
+     const totalCost= totalCostWithoutVat+taxCost;
+     document.getElementById("total").innerText= "$"+totalCost;
 
-</script>
+
+  
+  
+     
+    })
+
+
+  
+      // submit
+      document.getElementById('submit').addEventListener('click',function(){
+        alert("Thanks for joining us");
+      })
+
+// </script>
 
 </body>
 
